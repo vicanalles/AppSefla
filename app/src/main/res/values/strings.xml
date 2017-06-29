@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">AppSefla</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Configurações</string>
+    <string name="home">Home</string>
+    <string name="sobre">Sobre</string>
+    <string name="produtos">Produtos</string>
+    <string name="servicos">Serviços</string>
+    <string name="novidades">Novidades</string>
+    <string name="contato">Contato</string>
+    <string name="sefla">SEFLA</string>
+    <string name="tapetes_e_decoracoes">Tapetes e Decorações</string>
+</resources>
