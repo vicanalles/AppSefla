@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppSefla</string>
+    <string name="app_name">Sefla Tapetes e Decorações</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -13,4 +13,5 @@
     <string name="contato">Contato</string>
     <string name="sefla">SEFLA</string>
     <string name="tapetes_e_decoracoes">Tapetes e Decorações</string>
+    <string name="prod">Produtos</string>
 </resources>
