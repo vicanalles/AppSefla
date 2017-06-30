@@ -2,6 +2,7 @@ package appsefla.studio.com.appsefla;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.action_exit){
+            System.exit(0);
         }
 
         return super.onOptionsItemSelected(item);
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if(id == R.id.nav_produtos){
-            Intent intent = new Intent(this, ProdutosActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ProdutosActivity.class);
             startActivity(intent);
             finish();
         }

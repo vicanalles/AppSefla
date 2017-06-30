@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="appsefla.studio.com.appsefla.MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:showIn="@layout/app_bar_produtos">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello Sefla"
+        android:text="Hello Produtos"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="30sp"
