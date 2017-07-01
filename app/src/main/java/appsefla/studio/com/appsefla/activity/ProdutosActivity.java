@@ -22,7 +22,6 @@ public class ProdutosActivity extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_produtos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.prod);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.produtos_drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
