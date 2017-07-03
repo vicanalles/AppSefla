@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), ProdutosActivity.class);
             startActivity(intent);
             finish();
+        }else if(id == R.id.nav_servicos){
+            Intent intent = new Intent(getApplicationContext(), ServicosActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
