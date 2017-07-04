@@ -13,29 +13,32 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import appsefla.studio.com.appsefla.R;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ServicosActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.servicos_drawer) DrawerLayout drawer;
+    @BindView(R.id.nav_servicos_activity) NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_servicos);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.servicos_drawer);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_servicos_activity);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.servicos_drawer);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -79,6 +82,7 @@ public class ServicosActivity extends AppCompatActivity implements NavigationVie
             startActivity(intent);
             finish();
         }
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
