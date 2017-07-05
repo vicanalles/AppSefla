@@ -81,6 +81,10 @@ public class ServicosActivity extends AppCompatActivity implements NavigationVie
             Intent intent = new Intent(getApplicationContext(), ProdutosActivity.class);
             startActivity(intent);
             finish();
+        }else if(id == R.id.nav_sobre){
+            Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
+            startActivity(intent);
+            finish();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -91,6 +91,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(), ServicosActivity.class);
             startActivity(intent);
             finish();
+        }else if(id == R.id.nav_sobre){
+            Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
+            startActivity(intent);
+            finish();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
