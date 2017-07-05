@@ -33,8 +33,8 @@
                 android:paddingBottom="10dp"
                 android:paddingLeft="20dp"
                 android:paddingStart="20dp"
-                android:paddingTop="5dp"
-                android:text="Nome do Produto"
+                android:layout_marginTop="20dp"
+                android:text="Tapete 1"
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -43,28 +43,77 @@
             <ImageView
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:layout_below="@id/info_text"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:src="@drawable/teste"/>
+                android:src="@drawable/tapete1"/>
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/banner"
-                android:layout_centerVertical="true"
-                android:layout_margin="4dp"
-                android:ellipsize="end"
-                android:gravity="center"
-                android:maxLines="3"
-                android:padding="10dp"
-                android:text="Descrição Produto"
+                android:ellipsize="marquee"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="Tapete 1"
                 android:textColor="@android:color/black"
-                android:textSize="13sp"
-                android:typeface="sans"/>
+                android:textSize="16sp"
+                android:textAlignment="center"/>
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/info_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:layout_marginTop="290dp"
+                android:text="Tapete 2"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            <ImageView
+                android:id="@+id/banner2"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:layout_below="@id/info_text2"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tapete2"/>
+
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/banner2"
+                android:ellipsize="marquee"
+                android:gravity="start"
+                android:maxLines="1"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
+                android:paddingTop="10dp"
+                android:text="Tapete 2"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textAlignment="center"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
