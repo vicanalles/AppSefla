@@ -1,6 +1,8 @@
 package appsefla.studio.com.appsefla.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import appsefla.studio.com.appsefla.R;
 import butterknife.BindView;
@@ -18,9 +22,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.drawer_layout) DrawerLayout drawer;
-    @BindView(R.id.nav_view) NavigationView navigationView;
+    @BindView(R.id.tb_main) Toolbar toolbar;
+    private Toolbar toolbarBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,21 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        toolbarBottom = (Toolbar) findViewById(R.id.inc_tb_bottom);
+
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        toolbar.setSubtitle("Tapetes e Decorações");
+        toolbar.setSubtitleTextColor(Color.parseColor("#FFFFFF"));
+
+        toolbarBottom.inflateMenu(R.menu.menu_bottom);
+
+        toolbarBottom.findViewById(R.id.iv_settings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Configurações", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -37,22 +55,6 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Toast.makeText(this, "Configurações", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -83,20 +85,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if(id == R.id.nav_produtos){
-            Intent intent = new Intent(getApplicationContext(), ProdutosActivity.class);
-            startActivity(intent);
-            finish();
-        }else if(id == R.id.nav_servicos){
-            Intent intent = new Intent(getApplicationContext(), ServicosActivity.class);
-            startActivity(intent);
-            finish();
-        }else if(id == R.id.nav_sobre){
-            Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
-            startActivity(intent);
-            finish();
-        }
-        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }
