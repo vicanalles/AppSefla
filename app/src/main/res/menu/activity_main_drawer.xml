@@ -21,7 +21,4 @@
             android:id="@+id/nav_contato"
             android:title="@string/contato" />
     </group>
-
-
-
 </menu>

@@ -30,7 +30,7 @@ import butterknife.BindView;
 
 public class ProdutoFragment extends Fragment implements RecyclerViewOnClickListenerHack {
 
-    @BindView(R.id.rv_list) RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private List<Produto> mList;
 
     @Override
@@ -38,6 +38,7 @@ public class ProdutoFragment extends Fragment implements RecyclerViewOnClickList
 
         View view = inflater.inflate(R.layout.fragment_produto, container, false);
 
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv_list);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

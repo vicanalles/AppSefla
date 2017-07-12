@@ -43,7 +43,7 @@ public class ProdutosActivity extends AppCompatActivity implements NavigationVie
         navigationView.setNavigationItemSelectedListener(this);
 
         ProdutoFragment frag = (ProdutoFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
-        if(frag != null){
+        if(frag == null){
             frag = new ProdutoFragment();
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.rl_fragment_container, frag, "mainFrag");
