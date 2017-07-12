@@ -3,6 +3,7 @@ package appsefla.studio.com.appsefla.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,8 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import appsefla.studio.com.appsefla.R;
 import appsefla.studio.com.appsefla.activity.MainActivity;
+import appsefla.studio.com.appsefla.fragments.ProdutoFragment;
+import appsefla.studio.com.appsefla.model.Produto;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -35,6 +41,14 @@ public class ProdutosActivity extends AppCompatActivity implements NavigationVie
         toggle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        ProdutoFragment frag = (ProdutoFragment) getSupportFragmentManager().findFragmentByTag("mainFrag");
+        if(frag != null){
+            frag = new ProdutoFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.rl_fragment_container, frag, "mainFrag");
+            ft.commit();
+        }
     }
 
     @Override
@@ -74,19 +88,29 @@ public class ProdutosActivity extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
 
         if(id == R.id.nav_home){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, MainActivity.class));
             finish();
         }else if(id == R.id.nav_servicos){
-            Intent intent = new Intent(getApplicationContext(), ServicosActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, ServicosActivity.class));
             finish();
         }else if(id == R.id.nav_sobre){
-            Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
-            startActivity(intent);
+            startActivity(new Intent(this, SobreActivity.class));
             finish();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public List<Produto> getSetCarList(int qtd){
+        String[] models = new String[]{"Gallardo", "Vyron", "Corvette", "Pagani Zonda", "Porsche 911 Carrera", "BMW 720i", "DB77", "Mustang", "Camaro", "CT6"};
+        String[] brands = new String[]{"Lamborghini", " bugatti", "Chevrolet", "Pagani", "Porsche", "BMW", "Aston Martin", "Ford", "Chevrolet", "Cadillac"};
+        int[] photos = new int[]{R.drawable.gallardo, R.drawable.vyron, R.drawable.corvette, R.drawable.paganni_zonda, R.drawable.porsche_911, R.drawable.bmw_720, R.drawable.db77, R.drawable.mustang, R.drawable.camaro, R.drawable.ct6};
+        List<Produto> listAux = new ArrayList<>();
+
+        for(int i = 0; i < qtd; i++){
+            Produto c = new Produto( models[i % models.length], brands[ i % brands.length ], photos[i % models.length] );
+            listAux.add(c);
+        }
+        return(listAux);
     }
 }
