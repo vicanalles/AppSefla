@@ -3,6 +3,7 @@ package appsefla.studio.com.appsefla.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.tb_main) Toolbar toolbar;
-    private Toolbar toolbarBottom;
+    @BindView(R.id.tb_bottom) Toolbar toolbarBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +33,45 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        toolbarBottom = (Toolbar) findViewById(R.id.inc_tb_bottom);
+        //toolbarBottom = (Toolbar) findViewById(R.id.inc_tb_bottom);
 
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         toolbar.setSubtitle("Tapetes e Decorações");
         toolbar.setSubtitleTextColor(Color.parseColor("#FFFFFF"));
 
         toolbarBottom.inflateMenu(R.menu.menu_bottom);
-
         toolbarBottom.findViewById(R.id.iv_settings).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Configurações", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        toolbarBottom.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent intent = null;
+
+                switch (item.getItemId()){
+                    case R.id.action_facebook:
+                        intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://www.facebook.com"));
+                        break;
+                    case R.id.action_youtube:
+                        intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://www.youtube.com"));
+                        break;
+                    case R.id.action_google_gmail:
+                        intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://www.gmail.com"));
+                        break;
+                    case R.id.action_linkedin:
+                        intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("http://www.linkedin.com"));
+                        break;
+                }
+                startActivity(intent);
+                return true;
             }
         });
 

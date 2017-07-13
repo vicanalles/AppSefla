@@ -16,13 +16,26 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@color/colorPrimary"
-        app:theme="@style/AppTheme"
-        android:titleTextColor="@android:color/white"
-        android:subtitleTextColor="@android:color/white"/>
+        app:theme="@style/AppTheme" />
 
     <RelativeLayout
         android:id="@+id/rl_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </RelativeLayout>
+    
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tb_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        app:theme="@style/AppTheme">
+
+        <ImageView
+            android:id="@+id/iv_settings"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_settings"/>
+    </android.support.v7.widget.Toolbar>
 </RelativeLayout>
