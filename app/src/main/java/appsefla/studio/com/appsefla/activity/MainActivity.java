@@ -28,13 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import appsefla.studio.com.appsefla.R;
-import appsefla.studio.com.appsefla.adapter.AlbumsAdapter;
+import appsefla.studio.com.appsefla.adapter.ProdutosAdapter;
 import appsefla.studio.com.appsefla.model.Produto;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerView;
-    private AlbumsAdapter adapter;
+    private ProdutosAdapter adapter;
     private List<Produto> produtoList;
 
     @Override
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         produtoList = new ArrayList<>();
-        adapter = new AlbumsAdapter(this, produtoList);
+        adapter = new ProdutosAdapter(this, produtoList);
 
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         toolbar.setSubtitle("Tapetes e Decorações");

@@ -23,7 +23,7 @@ import appsefla.studio.com.appsefla.model.Produto;
  * Created by Vinicius Canalles on 14/07/2017.
  */
 
-public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHolder> {
+public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyViewHolder> {
 
     private Context mContext;
     private List<Produto> produtoList;
@@ -41,7 +41,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHold
         }
     }
 
-    public AlbumsAdapter(Context mContext, List<Produto> produtoList){
+    public ProdutosAdapter(Context mContext, List<Produto> produtoList){
         this.mContext = mContext;
         this.produtoList = produtoList;
     }
