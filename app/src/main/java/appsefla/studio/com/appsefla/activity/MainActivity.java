@@ -1,9 +1,7 @@
 package appsefla.studio.com.appsefla.activity;
 
-import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import appsefla.studio.com.appsefla.R;
@@ -24,7 +21,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.tb_main) Toolbar toolbar;
-    @BindView(R.id.tb_bottom) Toolbar toolbarBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,47 +29,18 @@ public class MainActivity extends AppCompatActivity
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        //toolbarBottom = (Toolbar) findViewById(R.id.inc_tb_bottom);
-
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         toolbar.setSubtitle("Tapetes e Decorações");
         toolbar.setSubtitleTextColor(Color.parseColor("#FFFFFF"));
 
-        toolbarBottom.inflateMenu(R.menu.menu_bottom);
-        toolbarBottom.findViewById(R.id.iv_settings).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Configurações", Toast.LENGTH_SHORT).show();
-            }
-        });
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_main);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-        toolbarBottom.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                Intent intent = null;
-
-                switch (item.getItemId()){
-                    case R.id.action_facebook:
-                        intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("http://www.facebook.com"));
-                        break;
-                    case R.id.action_youtube:
-                        intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("http://www.youtube.com"));
-                        break;
-                    case R.id.action_google_gmail:
-                        intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("http://www.gmail.com"));
-                        break;
-                    case R.id.action_linkedin:
-                        intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("http://www.linkedin.com"));
-                        break;
-                }
-                startActivity(intent);
-                return true;
-            }
-        });
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +50,16 @@ public class MainActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });*/
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_main);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
@@ -112,6 +89,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_main);
+        drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }
