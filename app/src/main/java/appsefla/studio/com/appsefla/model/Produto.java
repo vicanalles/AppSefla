@@ -7,13 +7,13 @@ package appsefla.studio.com.appsefla.model;
 public class Produto {
 
     private String nome;
-    private String descricao;
-    private int photo;
+    private int numOfSongs;
+    private int thumbnail;
 
-    public Produto(String nome, String descricao, int photo){
+    public Produto(String nome, int numOfSongs, int thumbnail){
         this.nome = nome;
-        this.descricao = descricao;
-        this.photo = photo;
+        this.numOfSongs = numOfSongs;
+        this.thumbnail  = thumbnail;
     }
 
     public String getNome() {
@@ -24,19 +24,19 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getNumOfSongs() {
+        return numOfSongs;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNumOfSongs(int numOfSongs) {
+        this.numOfSongs = numOfSongs;
     }
 
-    public int getPhoto() {
-        return photo;
+    public int getThumbnail() {
+        return thumbnail;
     }
 
-    public void setPhoto(int photo) {
-        this.photo = photo;
+    public void setThumbnail(int thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

@@ -20,4 +20,9 @@
     <string name="action_google_mail">Google Mail</string>
     <string name="action_linkedin">Linkedin</string>
     <string name="action_whatsapp">WhatsApp</string>
+
+    <string name="action_add_favourite">Add to Favorites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">Love Music</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
 </resources>
