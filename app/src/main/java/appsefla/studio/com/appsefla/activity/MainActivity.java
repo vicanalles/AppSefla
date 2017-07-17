@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView recyclerView;
     private ProdutosAdapter adapter;
     private List<Produto> produtoList;
+    private DrawerLayout drawerMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+        toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle("Sefla Tapetes e Decorações");
+                    collapsingToolbar.setTitle("Sefla");
                     collapsingToolbar.setCollapsedTitleTextColor(Color.parseColor("#FFFFFF"));
                     isShow = true;
                 } else if (isShow) {
