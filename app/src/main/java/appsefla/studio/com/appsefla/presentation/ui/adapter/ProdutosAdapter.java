@@ -1,4 +1,4 @@
-package appsefla.studio.com.appsefla.adapter;
+package appsefla.studio.com.appsefla.presentation.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
@@ -17,7 +17,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import appsefla.studio.com.appsefla.R;
-import appsefla.studio.com.appsefla.model.Produto;
+import appsefla.studio.com.appsefla.domain.models.Produto;
 
 /**
  * Created by Vinicius Canalles on 14/07/2017.

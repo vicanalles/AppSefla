@@ -1,4 +1,4 @@
-package appsefla.studio.com.appsefla.model;
+package appsefla.studio.com.appsefla.domain.models;
 
 /**
  * Created by vinicius on 11/07/17.

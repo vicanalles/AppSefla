@@ -1,4 +1,4 @@
-package appsefla.studio.com.appsefla.activity;
+package appsefla.studio.com.appsefla.presentation.ui.activity;
 
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -28,10 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import appsefla.studio.com.appsefla.R;
-import appsefla.studio.com.appsefla.adapter.ProdutosAdapter;
-import appsefla.studio.com.appsefla.model.Produto;
+import appsefla.studio.com.appsefla.presentation.ui.adapter.ProdutosAdapter;
+import appsefla.studio.com.appsefla.domain.models.Produto;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ProdutoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView recyclerView;
     private ProdutosAdapter adapter;

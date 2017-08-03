@@ -1,4 +1,4 @@
-package appsefla.studio.com.appsefla.interfaces;
+package appsefla.studio.com.appsefla.presentation.interfaces;
 
 import android.view.View;
 
