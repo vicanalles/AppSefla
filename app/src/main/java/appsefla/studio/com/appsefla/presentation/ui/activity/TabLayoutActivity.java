@@ -1,5 +1,7 @@
 package appsefla.studio.com.appsefla.presentation.ui.activity;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,26 +18,25 @@ import appsefla.studio.com.appsefla.presentation.ui.adapter.TabsPagerAdapter;
 
 public class TabLayoutActivity extends AppCompatActivity{
 
-    DrawerLayout drawerMain;
-    TabLayout tabs;
-    ViewPager pager;
-    TabsPagerAdapter adapter;
-    DrawerLayout drawer;
+    private TabLayout tabs;
+    private ViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_layout);
 
-        tabs = (TabLayout) findViewById(R.id.tabs);
         pager = (ViewPager) findViewById(R.id.pager);
-        adapter = new TabsPagerAdapter(getSupportFragmentManager());
 
         //método que seta o título da toolbar
         setToolbarTitle();
 
+        tabs = (TabLayout) findViewById(R.id.tabs);
+
         //seta o adapter
-        pager.setAdapter(adapter);
+        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), this));
+        tabs.setBackgroundColor(Color.BLACK);
+        tabs.setTabTextColors(ColorStateList.valueOf(Color.WHITE));
         tabs.setupWithViewPager(pager);
     }
 
