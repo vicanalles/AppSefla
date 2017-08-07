@@ -10,20 +10,20 @@ import android.widget.TextView;
 import appsefla.studio.com.appsefla.R;
 
 /**
- * Created by Vinicius Canalles on 04/08/2017.
+ * Created by Vinicius Canalles on 07/08/2017.
  */
 
-public class PageFragment extends Fragment {
+public class TesteFragment extends Fragment {
 
-    public PageFragment() {
+    public TesteFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_page_layout, container, false);
-        TextView txt = (TextView) view.findViewById(R.id.page_number_label);
-        txt.setText("Hello Tela 1");
+        View view = inflater.inflate(R.layout.fragment_teste_layout, container, false);
+        TextView txt = (TextView) view.findViewById(R.id.page_text_label);
+        txt.setText("Hello Tela 2");
 
         return view;
     }

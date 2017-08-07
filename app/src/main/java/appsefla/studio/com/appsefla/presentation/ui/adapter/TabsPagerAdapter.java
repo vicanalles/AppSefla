@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import appsefla.studio.com.appsefla.presentation.ui.fragments.PageFragment;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.TesteFragment;
 
 /**
  * Created by Vinicius Canalles on 04/08/2017.
@@ -15,7 +16,7 @@ import appsefla.studio.com.appsefla.presentation.ui.fragments.PageFragment;
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
-    private String[] titles = {"TODOS"};
+    private String[] titles = {"TODOS", "TESTE"};
 
     public TabsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -29,6 +30,8 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
         if (position == 0) {
             frag = new PageFragment();
+        }else if(position == 1){
+            frag = new TesteFragment();
         }
 
         Bundle b = new Bundle();
