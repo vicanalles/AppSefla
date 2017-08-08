@@ -1,10 +1,15 @@
 package appsefla.studio.com.appsefla.presentation.ui.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 
 import appsefla.studio.com.appsefla.R;
 import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentContato;
@@ -22,7 +27,7 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
 
-    private String[] titles = {"HOME", "SOBRE", "PRODUTOS", "SERVIÇOS", "NOVIDADES", "CONTATO"};
+    //private String[] titles = {"HOME", "SOBRE", "PRODUTOS", "SERVIÇOS", "NOVIDADES", "CONTATO"};
 
     private int[] imageResId = {
             R.drawable.ic_action_home,
@@ -69,11 +74,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return titles.length;
+        return imageResId.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return (titles[position]);
+        return null;
     }
 }

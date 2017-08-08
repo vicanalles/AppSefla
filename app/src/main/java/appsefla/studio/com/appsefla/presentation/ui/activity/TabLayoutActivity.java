@@ -31,6 +31,15 @@ public class TabLayoutActivity extends AppCompatActivity{
         //método que seta o título da toolbar
         setToolbarTitle();
 
+        final int[] imageResId = {
+                R.drawable.ic_action_home,
+                R.drawable.ic_action_book,
+                R.drawable.ic_photo_library,
+                R.drawable.ic_format_list_bulleted,
+                R.drawable.ic_notifications,
+                R.drawable.ic_contact_mail
+        };
+
         tabs = (TabLayout) findViewById(R.id.tabs);
 
         //seta o adapter
@@ -39,6 +48,10 @@ public class TabLayoutActivity extends AppCompatActivity{
         tabs.setTabTextColors(ColorStateList.valueOf(Color.BLACK));
         tabs.setSelectedTabIndicatorColor(Color.BLACK);
         tabs.setupWithViewPager(pager);
+
+        for(int i = 0; i < imageResId.length; i++){
+            tabs.getTabAt(i).setIcon(imageResId[i]);
+        }
     }
 
     public void setToolbarTitle(){
