@@ -13,17 +13,17 @@ import appsefla.studio.com.appsefla.R;
  * Created by Vinicius Canalles on 07/08/2017.
  */
 
-public class TesteFragment extends Fragment {
+public class SobreFragment extends Fragment {
 
-    public TesteFragment() {
+    public SobreFragment() {
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_teste_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_sobre, container, false);
         TextView txt = (TextView) view.findViewById(R.id.page_text_label);
-        txt.setText("Hello Tela 2");
+        txt.setText("Fragment Sobre");
 
         return view;
     }

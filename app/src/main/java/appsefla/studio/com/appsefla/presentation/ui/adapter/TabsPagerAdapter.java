@@ -6,8 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import appsefla.studio.com.appsefla.presentation.ui.fragments.PageFragment;
-import appsefla.studio.com.appsefla.presentation.ui.fragments.TesteFragment;
+import appsefla.studio.com.appsefla.R;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.HomeFragment;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.SobreFragment;
 
 /**
  * Created by Vinicius Canalles on 04/08/2017.
@@ -16,7 +17,17 @@ import appsefla.studio.com.appsefla.presentation.ui.fragments.TesteFragment;
 public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     private Context context;
-    private String[] titles = {"TODOS", "TESTE"};
+
+    private String[] titles = {"HOME", "SOBRE", "PRODUTOS", "SERVIÇOS", "NOVIDADES", "CONTATO"};
+
+    private int[] imageResId = {
+            R.drawable.ic_action_home,
+            R.drawable.ic_action_book,
+            R.drawable.ic_photo_library,
+            R.drawable.ic_format_list_bulleted,
+            R.drawable.ic_notifications,
+            R.drawable.ic_contact_mail
+    };
 
     public TabsPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
@@ -29,15 +40,17 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
         Fragment frag = null;
 
         if (position == 0) {
-            frag = new PageFragment();
+            frag = new HomeFragment();
         }else if(position == 1){
-            frag = new TesteFragment();
+            frag = new SobreFragment();
         }
 
         Bundle b = new Bundle();
         b.putInt("position", position);
 
-        frag.setArguments(b);
+        if (frag != null) {
+            frag.setArguments(b);
+        }
 
         return frag;
     }

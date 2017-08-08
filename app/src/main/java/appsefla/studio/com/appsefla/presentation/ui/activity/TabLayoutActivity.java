@@ -35,8 +35,9 @@ public class TabLayoutActivity extends AppCompatActivity{
 
         //seta o adapter
         pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), this));
-        tabs.setBackgroundColor(Color.BLACK);
-        tabs.setTabTextColors(ColorStateList.valueOf(Color.WHITE));
+        tabs.setBackgroundColor(Color.parseColor("#7CB342"));
+        tabs.setTabTextColors(ColorStateList.valueOf(Color.BLACK));
+        tabs.setSelectedTabIndicatorColor(Color.BLACK);
         tabs.setupWithViewPager(pager);
     }
 
