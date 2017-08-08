@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import appsefla.studio.com.appsefla.R;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentContato;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentNovidades;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentProdutos;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentServicos;
 import appsefla.studio.com.appsefla.presentation.ui.fragments.HomeFragment;
 import appsefla.studio.com.appsefla.presentation.ui.fragments.SobreFragment;
 
@@ -43,6 +47,14 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             frag = new HomeFragment();
         }else if(position == 1){
             frag = new SobreFragment();
+        }else if(position == 2){
+            frag = new FragmentProdutos();
+        }else if(position == 3){
+            frag = new FragmentServicos();
+        }else if(position == 4){
+            frag = new FragmentNovidades();
+        }else if(position == 5){
+            frag = new FragmentContato();
         }
 
         Bundle b = new Bundle();

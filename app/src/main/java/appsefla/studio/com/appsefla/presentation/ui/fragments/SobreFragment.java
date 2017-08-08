@@ -22,7 +22,7 @@ public class SobreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sobre, container, false);
-        TextView txt = (TextView) view.findViewById(R.id.page_text_label);
+        TextView txt = (TextView) view.findViewById(R.id.text_view_fragment_sobre);
         txt.setText("Fragment Sobre");
 
         return view;

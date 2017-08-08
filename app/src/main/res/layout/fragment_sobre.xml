@@ -10,7 +10,7 @@
     tools:context=".presentation.ui.fragments.HomeFragment">
 
     <TextView
-        android:id="@+id/page_text_label"
+        android:id="@+id/text_view_fragment_sobre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.Large"

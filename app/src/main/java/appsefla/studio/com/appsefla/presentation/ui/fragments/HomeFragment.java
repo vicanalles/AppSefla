@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        TextView txt = (TextView) view.findViewById(R.id.page_number_label);
+        TextView txt = (TextView) view.findViewById(R.id.text_view_home_fragment);
         txt.setText("Fragment Home");
 
         return view;
