@@ -2,20 +2,64 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".presentation.ui.fragments.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_view_fragment_sobre"
+    <RelativeLayout
+        android:id="@+id/relative_layout_exposicao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Large"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:textAlignment="center"/>
+        android:layout_marginTop="60dp"
+        android:gravity="center">
 
+        <ImageView
+            android:id="@+id/image_view_sobre"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/sobre"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_descricao_exposicao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_layout_exposicao"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text_view_title_exposicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exposicao_dos_produtos"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text_view_text_exposicao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_exposicao_dos_produtos"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:layout_below="@id/text_view_title_exposicao"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/text_view_exposicao_servicos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/texto_exposicao_dos_produtos_ofertas"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:layout_below="@id/text_view_text_exposicao"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
 </RelativeLayout>

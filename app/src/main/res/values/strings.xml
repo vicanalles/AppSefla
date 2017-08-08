@@ -25,4 +25,7 @@
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">SEFLA</string>
     <string name="backdrop_subtitle">Tapetes e Decorações</string>
+    <string name="exposicao_dos_produtos">Exposição dos Produtos</string>
+    <string name="texto_exposicao_dos_produtos">Estamos expondo aos finais de semana na Feira de Antiguidade do MUBE - Museu Brasileiro de Esculturas - Jardim Europa/SP! Vendemos e compramos tapetes e produtos antigos!!</string>
+    <string name="texto_exposicao_dos_produtos_ofertas">VENHA E APROVEITE NOSSAS OFERTAS!!</string>
 </resources>
