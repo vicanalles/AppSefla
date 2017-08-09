@@ -1,5 +1,6 @@
 package appsefla.studio.com.appsefla.presentation.ui.activity;
 
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -33,7 +35,7 @@ import appsefla.studio.com.appsefla.domain.models.Produto;
 
 public class ProdutoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView recyclerView;
+    //private RecyclerView recyclerView;
     private ProdutosAdapter adapter;
     private List<Produto> produtoList;
     private DrawerLayout drawerMain;
@@ -44,41 +46,39 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setToolbarTitle();
+        //initCollapsingToolbar();
 
-        initCollapsingToolbar();
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        //recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         produtoList = new ArrayList<>();
         adapter = new ProdutosAdapter(this, produtoList);
 
-        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
-        toolbar.setSubtitle("Tapetes e Decorações");
-        toolbar.setSubtitleTextColor(Color.parseColor("#FFFFFF"));
-
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        /*RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
 
-        prepareAlbums();
+        prepareAlbums();*/
 
-        try {
+        /*try {
             Glide.with(this).load(R.drawable.bmw_720).into((ImageView) findViewById(R.id.backdrop));
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_main);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
+        toggle.getDrawerArrowDrawable().setColor(Color.BLACK);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
+        navigationView.setItemIconTintList(ColorStateList.valueOf(Color.BLACK));
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -90,11 +90,15 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
         });*/
     }
 
+    private void setToolbarTitle(){
+        TextView titleToolbar = (TextView) findViewById(R.id.toolbar_text);
+        titleToolbar.setText(R.string.backdrop_title);
+    }
     /*
     Initializing collapsing toolbar
     Will show and hide toolbar title on scroll
      */
-    private void initCollapsingToolbar() {
+    /*private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("");
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
@@ -119,9 +123,9 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
                 }
             }
         });
-    }
+    }*/
 
-    private void prepareAlbums() {
+    /*private void prepareAlbums() {
         int[] covers = new int[]{
                 R.drawable.camaro,
                 R.drawable.corvette,
@@ -161,9 +165,9 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
         produtoList.add(p);
 
         adapter.notifyDataSetChanged();
-    }
+    }*/
 
-    public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
+    /*public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration{
 
         private int spanCount;
         private int spacing;
@@ -196,12 +200,12 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
                 }
             }
         }
-    }
+    }*/
 
-    private int dpToPx(int dp){
+    /*private int dpToPx(int dp){
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
