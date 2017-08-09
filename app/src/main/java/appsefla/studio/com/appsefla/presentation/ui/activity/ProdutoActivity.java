@@ -1,30 +1,21 @@
 package appsefla.studio.com.appsefla.presentation.ui.activity;
 
+import android.app.Fragment;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +23,21 @@ import java.util.List;
 import appsefla.studio.com.appsefla.R;
 import appsefla.studio.com.appsefla.presentation.ui.adapter.ProdutosAdapter;
 import appsefla.studio.com.appsefla.domain.models.Produto;
+import appsefla.studio.com.appsefla.presentation.ui.adapter.TabsPagerAdapter;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentContato;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentNovidades;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentProdutos;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentServicos;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.HomeFragment;
+import appsefla.studio.com.appsefla.presentation.ui.fragments.SobreFragment;
 
 public class ProdutoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //private RecyclerView recyclerView;
     private ProdutosAdapter adapter;
     private List<Produto> produtoList;
-    private DrawerLayout drawerMain;
+    private TabLayout tabs;
+    private ViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +46,12 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setToolbarTitle();
-        //initCollapsingToolbar();
 
-        //recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
+        pager = (ViewPager) findViewById(R.id.pager);
         produtoList = new ArrayList<>();
         adapter = new ProdutosAdapter(this, produtoList);
 
+        //recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         /*RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
@@ -80,6 +78,27 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
         navigationView.setItemTextColor(ColorStateList.valueOf(Color.BLACK));
         navigationView.setItemIconTintList(ColorStateList.valueOf(Color.BLACK));
 
+        final int[] imageResId = {
+            R.drawable.ic_action_home,
+            R.drawable.ic_action_book,
+            R.drawable.ic_photo_library,
+            R.drawable.ic_format_list_bulleted,
+            R.drawable.ic_notifications,
+            R.drawable.ic_contact_mail
+        };
+
+        tabs = (TabLayout) findViewById(R.id.tabs);
+
+        pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), this));
+        tabs.setBackgroundColor(Color.parseColor("#7CB342"));
+        tabs.setTabTextColors(ColorStateList.valueOf(Color.BLACK));
+        tabs.setSelectedTabIndicatorColor(Color.BLACK);
+        tabs.setupWithViewPager(pager);
+
+        for(int i = 0; i < imageResId.length; i++){
+            tabs.getTabAt(i).setIcon(imageResId[i]);
+        }
+
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,32 +117,6 @@ public class ProdutoActivity extends AppCompatActivity implements NavigationView
     Initializing collapsing toolbar
     Will show and hide toolbar title on scroll
      */
-    /*private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
-
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle("Sefla");
-                    collapsingToolbar.setCollapsedTitleTextColor(Color.parseColor("#FFFFFF"));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle("");
-                    isShow = false;
-                }
-            }
-        });
-    }*/
 
     /*private void prepareAlbums() {
         int[] covers = new int[]{
