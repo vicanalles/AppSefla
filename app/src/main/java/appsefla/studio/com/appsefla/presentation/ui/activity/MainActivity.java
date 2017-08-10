@@ -31,7 +31,7 @@ import appsefla.studio.com.appsefla.presentation.ui.fragments.FragmentServicos;
 import appsefla.studio.com.appsefla.presentation.ui.fragments.HomeFragment;
 import appsefla.studio.com.appsefla.presentation.ui.fragments.SobreFragment;
 
-public class ProdutoActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //private RecyclerView recyclerView;
     private ProdutosAdapter adapter;
