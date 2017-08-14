@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        toggle.getDrawerArrowDrawable().setColor(Color.BLACK);
+        toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tabs = (TabLayout) findViewById(R.id.tabs);
 
         pager.setAdapter(new TabsPagerAdapter(getSupportFragmentManager(), this));
-        tabs.setBackgroundColor(Color.parseColor("#7CB342"));
+        tabs.setBackgroundColor(Color.parseColor("#0D47A1"));
         tabs.setTabTextColors(ColorStateList.valueOf(Color.BLACK));
         tabs.setSelectedTabIndicatorColor(Color.BLACK);
         tabs.setupWithViewPager(pager);
